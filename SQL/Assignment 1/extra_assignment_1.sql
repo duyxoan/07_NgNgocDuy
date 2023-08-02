@@ -6,12 +6,12 @@ CREATE TABLE trainee (
     traineeid INT AUTO_INCREMENT PRIMARY KEY,
     fullname NVARCHAR(50),
     birth_day DATE,
-    gender ENUM('male', 'female', 'unknow'),
-    ET_IQ INTEGER(20),
-    ET_Gmath INTEGER(20),
-    ET_English INTEGER(50),
+    gender ENUM('male', 'female', 'unknown'),
+    ET_IQ INT check (ET_IQ <=20),
+    ET_Gmath INT check (ET_Gmath <=20),
+    ET_English INT check (ET_English <=50),
     Tranining_class VARCHAR(50),
-    evaluation_notes NVARCHAR(100000)
+    evaluation_notes text
 );
 ALTER TABLE trainee 
 ADD VTI_Account VARCHAR(50) NOT NULL UNIQUE;          
