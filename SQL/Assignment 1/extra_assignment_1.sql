@@ -1,9 +1,9 @@
 DROP database if exists extra_system_assignment_1;
 Create database extra_system_assignment_1;
 USE extra_system_assignment_1;
-DROP TABLE IF EXISTS trainee;
+DROP TABLE IF EXISTS Fresher_management;
 CREATE TABLE Fresher_management (
-    traineeid INT AUTO_INCREMENT PRIMARY KEY,
+    traineeid INT ,
     fullname NVARCHAR(50) NOT NULL,
     birth_day DATE,
     gender ENUM('male', 'female', 'unknown'),
@@ -14,7 +14,7 @@ CREATE TABLE Fresher_management (
     evaluation_notes TEXT
 );
 ALTER TABLE Fresher_management
-ADD VTI_Account VARCHAR(50) NOT NULL UNIQUE;          
+ADD VTI_Account nVARCHAR(50) NOT NULL UNIQUE;          
 -- exercise2--
 DROP TABLE IF EXISTS datatypes ;
 CREATE TABLE datatypes (
@@ -42,5 +42,8 @@ VALUES ('1','TRAN VAN A','2003-07-03','male','15','12','30','toán','trung bình
         ('7','TRAN VAN G','2006-09-12','male','15','12','30','anh','khá','tranvang@gmail.com'),
         ('8','TRAN VAN H','2006-03-21','male','15','12','30','toán','trung bình','tranvanh@gmail.com'),
         ('9','TRAN VAN I','2006-01-15','male','15','12','30','hoá','khá','tranvani@gmail.com');
-        
-           
+       
+		
+    select * from Fresher_management;
+    delete from Fresher_management;
+    SET SQL_SAFE_UPDATES = 0;
