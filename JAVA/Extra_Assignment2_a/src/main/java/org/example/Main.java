@@ -1,11 +1,13 @@
 package org.example;
-
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
+        Main obj = new Main();
+
         List<String> hoList = new ArrayList<>();
         hoList.add("Nguyen");
         hoList.add("Tran");
@@ -46,9 +48,26 @@ public class Main {
             tenDayDuList.add(tenDayDu);
         }
 
+        int numDates = 10;
+        LocalDate[] listLocalDate = new LocalDate[numDates];
+
+        for (int i = 0; i < numDates; i++) {
+            listLocalDate[i] = obj.randomDate();
+        }
+
         for (int i = 0; i < tenDayDuList.size(); i++) {
             String studentID = "MSSV " + (random.nextInt(2020000) + 1000);
-            System.out.println("Sinh viên " + (i + 1) + ": " + tenDayDuList.get(i) + ", ID: " + studentID);
+            LocalDate randomBirthDate = listLocalDate[i];
+
+            System.out.println("Sinh viên " + (i + 1) + ": " + tenDayDuList.get(i) + ", ID: " + studentID + ", Ngày sinh: " + randomBirthDate);
         }
+    }
+
+    LocalDate randomDate() {
+        Random random = new Random();
+        int minDay = (int) LocalDate.of(1991, 2, 1).toEpochDay();
+        int maxDay = (int) LocalDate.of(1991, 12, 31).toEpochDay();
+        long randomInt = minDay + random.nextInt(maxDay - minDay);
+        return LocalDate.ofEpochDay(randomInt);
     }
 }
