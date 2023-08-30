@@ -5,6 +5,11 @@ public class Group {
     public String GroupName;
     public short CreatorID;
     public Date createDate;
-
+    public Group(byte groupID, String groupName, short creatorID, Date createDate) {
+        this.groupID = groupID;
+        this.GroupName = groupName;
+        this.CreatorID = creatorID;
+        this.createDate = createDate;
+    }
 
 }
